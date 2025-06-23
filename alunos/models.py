@@ -13,3 +13,12 @@ class Cidade(models.Model):
 
     def __str__(self):
         return self.nome
+
+class Aluno(models.Model):
+    nome = models.CharField(max_length=60)
+    email = models.EmailField(max_length=100)
+    datanascimento = models.DateField()
+    cidade = models.ForeignKey(Cidade, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.nome
